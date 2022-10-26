@@ -135,11 +135,14 @@ class _AppLifecycleScreenState extends State<AppLifecycleScreen>
           child: Stack(
             children: [
               GestureDetector(
-                onTap: () => FocusScope.of(context).unfocus(),
+                // onTap: () => FocusScope.of(context).unfocus(),
+                // > Flutter version 2.0
+                onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
                 child: Column(
                   children: [
                     Expanded(
                       child: SingleChildScrollView(
+                        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           // ignore: prefer_const_literals_to_create_immutables
